@@ -3,8 +3,8 @@ import {Component} from '../../core/Component';
 export class Header extends Component {
   static cssClassName = 'vtab__header';
 
-  constructor($root) {
-    super($root);
+  constructor(root) {
+    super(root);
   }
 
   toHTML() {

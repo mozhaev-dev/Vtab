@@ -15,6 +15,11 @@ class DOM {
     return this.html('');
   }
 
+  on(eventName, callback) {
+    this.$el.addEventListener(eventName, callback);
+    return this;
+  }
+
   append(el) {
     if (el instanceof DOM) {
       this.$el.append(el.$el);
@@ -45,6 +50,6 @@ $.createElement = (tagname, {
   });
   
   const el = new DOM($el);
-  // console.log(el);
+
   return el;
 };

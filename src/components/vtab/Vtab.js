@@ -9,12 +9,14 @@ export class Vtab {
   getRoot() {
     const root = $.createElement('div', {classList: 'vtab'});
 
-    this.components.forEach(Component => {
+    this.components = this.components.map(Component => {
       const el = $.createElement('div', {classList: Component.cssClassName});
 
       const component = new Component(el);
       el.html(component.toHTML());
       root.append(el);
+      
+      return component;
     });
     
     return root.$el;
@@ -22,5 +24,6 @@ export class Vtab {
 
   render() {
     this.$el.append(this.getRoot());
+    this.components.forEach(component => component.init());
   }
 }
